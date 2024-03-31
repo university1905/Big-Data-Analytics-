@@ -41,8 +41,8 @@ While query processing prioritizes swift response times, indexing can be accompl
 ## Contributors:
 
 This project exists thanks to the extraordinary people who contributed to it.
-* **[Hamza Mahmood Burney]((https://github.com/HamzaBurney)) (i222058@nu.edu.pk)**
-* **[Irtiza Abbas]((https://github.com/irtizaab)) (i221862@nu.edu.pk)**
+* **[Hamza Mahmood Burney](https://github.com/HamzaBurney) (i222058@nu.edu.pk)**
+* **[Irtiza Abbas](https://github.com/irtizaab) (i221862@nu.edu.pk)**
 * **[Zain Abbas](https://github.com/ZainAbbas97) (i221905@nu.edu.pk)**
 
 ---
