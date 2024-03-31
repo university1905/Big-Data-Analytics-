@@ -1,0 +1,25 @@
+Rank: 
+ID   Title       Relevance_Score
+------------------------------
+0    Anarchism   11.811
+15   Ayn Rand    0.453
+35   Animal Farm  0.191
+14   Altruism    0.118
+84   Foreign relations of Angola  0.080
+66   Ambiguity   0.078
+2    Albedo      0.062
+22   Alchemy     0.049
+7    Aristotle   0.042
+19   List of Atlas Shrugged characters  0.040
+25   ASCII       0.035
+78   Angola      0.031
+28   Apollo      0.030
+20   Anthropology  0.028
+38   Agriculture  0.021
+43   Analysis of variance  0.021
+72   Asia        0.021
+51   Abacus      0.016
+61   Alphabet    0.016
+21   Agricultural science  0.014
+
+Most relevant article according to the query: 0 Anarchism
