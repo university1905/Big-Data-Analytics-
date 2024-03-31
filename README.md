@@ -43,7 +43,6 @@ While query processing prioritizes swift response times, indexing can be accompl
 *  Step 3:
   - hadoop fs -put dataset.txt /input/dataset.txt  
   Insert the dataset.txt which was craeted in step 1, into the 'input' folder.
-  This would be the input for 
 
 *  Step 4:
   - hadoop jar /usr/local/hadoop-2.10.2/share/hadoop/tools/lib/hadoop-streaming-          2.10.2.jar -input /input/dataset.txt -output /input/output1 -mapper mapper_index.py -   reducer reducer_index.py -file mapper_index.py -file reducer_index.py
