@@ -23,20 +23,40 @@ While query processing prioritizes swift response times, indexing can be accompl
 
 ## Usage:
 
-* ``Music Recommendation Based on Rhythmic Similarity Using Locality-Sensitive Hashing (LSH).ipynb`` — Contains the implementation of our Locality-Sensitive Hashing (LSH) implementation to train and evaluate a music recommendation system on the audio dataset.
-* ``app.py`` — Source code for the web application (Flask) that accompanies the music recommendation system.
-* ``templates`` — Contains the source codes for the web pages, namely ``index.html`` and ``predict.html``, which are rendered by the web application (Flask).
-* ``static`` — Contains all the icons and visual elements utilised by the web application (Flask).
-* ``static\files`` — Directory where the audio files uploaded by users on the web application (Flask) are stored.
-* ``features.pkl`` — Object file that contains the Mel-Frequency Cepstral Coefficients (MFCC) features of all the audio files utilised for training.
-* ``music.ann`` — Memory-mapped (mmap) file that contains the AnnoyIndex object for the music recommendation system utilising Approximate Nearest Neighbors (ANN).
+* ``Text_Preprocessing.ipynb`` — Contains the implementation of our text preprocessing implementation to extract only useful information from the dataset.
+* ``dataset.txt`` — The TextPreprocessing.ipynb file will make dataset.txt file that will be fed into the Mapper.
+* ``mapper_index.py`` — Contains the codes for calculating the Term Frequency and Inverse Document Frequency and utilizes the ``dataset.txt`` file.
+* ``reducer_index.py`` — This calculates the weights and the vector space from the output of ```mapper_index.py```
+* ``mapper_query.py`` — Reading the query, and Vector Space, IDF and Vocabulary of the original dataset. Then term frequence, IDF the weights and the Vector Space for the query are generated.
+* ``reducer_query.py`` — Calculates the scalar product of both Vector Spaces and displays the output in the ``output.txt file``
 
 ## Instructions (Execution):
+* Step 1:
+  Run all the cells of the jupyter file
+  This would create a dataset.txt.
+  In dataset.txt, we have created a new dataset after preprocessing at, as well as        vocabulary creation
 
-* Execute the ``app.py`` file and access the given link to the host port.
-* Upload any audio file into the system.
-* Once you reach the ``/predict`` page, you will receive both the best and worst recommendations for the uploaded audio file.
-* Additionally, a file named ``pied_piper_download.csv`` will be saved in the current directory, which will include similar audio segments identified from the uploaded audio file.
+* Step 2:
+  - hadoop fs -mkdir -p /input/
+  Create a folder named 'input' in Hadoop
+
+*  Step 3:
+  - hadoop fs -put dataset.txt /input/dataset.txt  
+  Insert the dataset.txt which was craeted in step 1, into the 'input' folder.
+  This would be the input for 
+
+*  Step 4:
+  - hadoop jar /usr/local/hadoop-2.10.2/share/hadoop/tools/lib/hadoop-streaming-          2.10.2.jar -input /input/dataset.txt -output /input/output1 -mapper mapper_index.py -   reducer reducer_index.py -file mapper_index.py -file reducer_index.py
+
+  Run the above script for indexing. This would create an output file which has the       location: /input/output1/part-00000
+
+*  Step 5:
+  - hadoop jar /usr/local/hadoop-2.10.2/share/hadoop/tools/lib/hadoop-streaming-          2.10.2.jar -input /input/output1/part-00000 -output /input/output2 -mapper             "mapper_query.py 'your query'" -reducer reducer_query.py -file mapper_query.py -file     reducer_query.py
+
+  Change the 'your query' part with your specific query
+
+  Run the above script for query results. This would create an output file named         output.txt in the local folder, which contains the final results of the query :)
+
 
 ## Contributors:
 
