@@ -28,7 +28,7 @@ The project is designed to demonstrate a seamless flow of data from Kafka to Mon
 ### Consumer 
 - *apriori.py*: Consumes messages from Kafka, applies the Apriori algorithm to find frequent itemsets, and stores the sets, set number and the frequency count as results in MongoDB.
 - *pcy.py*: Consumes messages from Kafka, applies the Sliding PCY algorithm to find frequent itemsets, and stores the results in MongoDB.
-- *custom.py*: —
+- *custom.py*: Ranking of Products based on category
 
 ### Setting Up the Environment
 1. Ensure Kafka and MongoDB services are running.
@@ -38,22 +38,22 @@ The project is designed to demonstrate a seamless flow of data from Kafka to Mon
 1. *Start the Kafka Producer*:  
    Run python producer.py to begin data ingestion into Kafka.
 2. *Execute the Kafka Consumer*:  
-   Run python apriori.py to start the consumer process that applies the Apriori algorithm and writes the output to MongoDB.
-   Run python pcy.py to start the consumer process that applies the pcy algorithm and writes the output to MongoDB.
-   Run python custom.py to start the consumer process that applies the custom algorithm and writes the output to MongoDB.
+   Run python ```apriori.py``` to start the consumer process that applies the Apriori algorithm and writes the output to MongoDB.
+   Run python ```pcy.py``` to start the consumer process that applies the pcy algorithm and writes the output to MongoDB.
+   Run python ```custom.py``` to start the consumer process that applies the custom algorithm and writes the output to MongoDB.
 3. *Activate MongoDB & Open Mongosh*:  
-   Activate Mongo by typing sudo systemctl start mongod terminal
-   Run Mongosh Terminal by typing mongosh in the terminal
-   Run use mydatabase to select the database 
+   Activate Mongo by typing ```sudo systemctl start mongod``` terminal
+   Run Mongosh Terminal by typing ```mongosh``` in the terminal
+   Run use ```mydatabase``` to select the database 
 4. *View the Database for the PCY consumer*:  
-   Run db.frequent_itemsets.deleteMany({}) to delete the previous content for the PCY consumer database
-   Run db.frequent_itemsets.find().pretty() to view the database for the PCY consumer
+   Run ```db.frequent_itemsets.deleteMany({})``` to delete the previous content for the PCY consumer database
+   Run ```db.frequent_itemsets.find().pretty()``` to view the database for the PCY consumer
 5. *View the Database for the Apriori consumer*:  
-   Run db.apriori.deleteMany({}) to delete the previous content for the Apriori consumer database
-   Run db.apriori.find().pretty() to view the database for the Apriori consumer
+   Run ```db.apriori.deleteMany({})``` to delete the previous content for the Apriori consumer database
+   Run ```db.apriori.find().pretty()``` to view the database for the Apriori consumer
 6. *View the Database for the custom consumer*:  
-   Run db.custom.deleteMany({}) to delete the previous content for the custom consumer database
-   Run db.custom.find().pretty() to view the database for the custom consumer
+   Run ```db.custom.deleteMany({})``` to delete the previous content for the custom consumer database
+   Run ```db.custom.find().pretty()``` to view the database for the custom consumer
 
 
 ## Contributors
