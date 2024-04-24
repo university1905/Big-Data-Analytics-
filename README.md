@@ -3,7 +3,7 @@
 This repository contains source code for a project that utilizes Apache Kafka for data ingestion and MongoDB for storing results processed by the Apriori algorithm. The project serves as an exemplary implementation for real-time data processing and frequent itemset mining in a distributed environment.
 
 ## Dependencies
-- Python 3.x (install from [official site](https://www.python.org/downloads/))
+- Python (install from [official site](https://www.python.org/downloads/))
 - Kafka (setup instructions available on [Apache Kafka](https://kafka.apache.org/documentation/))
 - MongoDB (installation guide at [MongoDB](https://www.mongodb.com/try/download/community))
 - Python libraries:
